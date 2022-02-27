@@ -1,0 +1,9 @@
+E:/clionProjects/strings/cmake-build-debug/CMakeFiles/project.dir
+E:/clionProjects/strings/cmake-build-debug/CMakeFiles/edit_cache.dir
+E:/clionProjects/strings/cmake-build-debug/CMakeFiles/str.dir
+E:/clionProjects/strings/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+E:/clionProjects/strings/cmake-build-debug/string/CMakeFiles/edit_cache.dir
+E:/clionProjects/strings/cmake-build-debug/string/CMakeFiles/rebuild_cache.dir
+E:/clionProjects/strings/cmake-build-debug/string/tasks/CMakeFiles/string_.h.dir
+E:/clionProjects/strings/cmake-build-debug/string/tasks/CMakeFiles/edit_cache.dir
+E:/clionProjects/strings/cmake-build-debug/string/tasks/CMakeFiles/rebuild_cache.dir
