@@ -6,9 +6,9 @@ set(CMAKE_C_STANDARD 11)
 # определение точки входа. Будет запущен файл main . c .
 # указывается произвольная метка, в данном случае - project
 add_executable(project main.c)
+
 # создаём библиотеку
-add_subdirectory(string)
-add_library(str string/tasks/string_.h string/tasks/string_.c
+add_library(str string/string_.h string/string_.c
         # string / tasks / digitToStartTransform . h
         # string / tasks / reverseWords . h
         # string / tasks / replaceDigitsBySpaces . h

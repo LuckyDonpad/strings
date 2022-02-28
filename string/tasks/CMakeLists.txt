@@ -1,1 +1,0 @@
-add_library(string_.h string_.c)

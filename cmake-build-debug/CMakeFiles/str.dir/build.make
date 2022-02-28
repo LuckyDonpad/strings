@@ -65,27 +65,27 @@ include CMakeFiles/str.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/str.dir/flags.make
 
-CMakeFiles/str.dir/string/tasks/string_.c.obj: CMakeFiles/str.dir/flags.make
-CMakeFiles/str.dir/string/tasks/string_.c.obj: ../string/tasks/string_.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\clionProjects\strings\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/str.dir/string/tasks/string_.c.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\str.dir\string\tasks\string_.c.obj -c E:\clionProjects\strings\string\tasks\string_.c
+CMakeFiles/str.dir/string/string_.c.obj: CMakeFiles/str.dir/flags.make
+CMakeFiles/str.dir/string/string_.c.obj: ../string/string_.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\clionProjects\strings\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/str.dir/string/string_.c.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\str.dir\string\string_.c.obj -c E:\clionProjects\strings\string\string_.c
 
-CMakeFiles/str.dir/string/tasks/string_.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/str.dir/string/tasks/string_.c.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\clionProjects\strings\string\tasks\string_.c > CMakeFiles\str.dir\string\tasks\string_.c.i
+CMakeFiles/str.dir/string/string_.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/str.dir/string/string_.c.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\clionProjects\strings\string\string_.c > CMakeFiles\str.dir\string\string_.c.i
 
-CMakeFiles/str.dir/string/tasks/string_.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/str.dir/string/tasks/string_.c.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\clionProjects\strings\string\tasks\string_.c -o CMakeFiles\str.dir\string\tasks\string_.c.s
+CMakeFiles/str.dir/string/string_.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/str.dir/string/string_.c.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\clionProjects\strings\string\string_.c -o CMakeFiles\str.dir\string\string_.c.s
 
 # Object files for target str
 str_OBJECTS = \
-"CMakeFiles/str.dir/string/tasks/string_.c.obj"
+"CMakeFiles/str.dir/string/string_.c.obj"
 
 # External object files for target str
 str_EXTERNAL_OBJECTS =
 
-libstr.a: CMakeFiles/str.dir/string/tasks/string_.c.obj
+libstr.a: CMakeFiles/str.dir/string/string_.c.obj
 libstr.a: CMakeFiles/str.dir/build.make
 libstr.a: CMakeFiles/str.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\clionProjects\strings\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libstr.a"

@@ -141,19 +141,6 @@ str/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/build
 .PHONY : str/fast
 
-#=============================================================================
-# Target rules for targets named string_.h
-
-# Build rule for target.
-string_.h: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 string_.h
-.PHONY : string_.h
-
-# fast build rule for target.
-string_.h/fast:
-	$(MAKE) $(MAKESILENT) -f string\tasks\CMakeFiles\string_.h.dir\build.make string/tasks/CMakeFiles/string_.h.dir/build
-.PHONY : string_.h/fast
-
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -178,29 +165,29 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\project.dir\build.make CMakeFiles/project.dir/main.c.s
 .PHONY : main.c.s
 
-string/tasks/string_.obj: string/tasks/string_.c.obj
-.PHONY : string/tasks/string_.obj
+string/string_.obj: string/string_.c.obj
+.PHONY : string/string_.obj
 
 # target to build an object file
-string/tasks/string_.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tasks/string_.c.obj
-.PHONY : string/tasks/string_.c.obj
+string/string_.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/string_.c.obj
+.PHONY : string/string_.c.obj
 
-string/tasks/string_.i: string/tasks/string_.c.i
-.PHONY : string/tasks/string_.i
+string/string_.i: string/string_.c.i
+.PHONY : string/string_.i
 
 # target to preprocess a source file
-string/tasks/string_.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tasks/string_.c.i
-.PHONY : string/tasks/string_.c.i
+string/string_.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/string_.c.i
+.PHONY : string/string_.c.i
 
-string/tasks/string_.s: string/tasks/string_.c.s
-.PHONY : string/tasks/string_.s
+string/string_.s: string/string_.c.s
+.PHONY : string/string_.s
 
 # target to generate assembly for a file
-string/tasks/string_.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/tasks/string_.c.s
-.PHONY : string/tasks/string_.c.s
+string/string_.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\str.dir\build.make CMakeFiles/str.dir/string/string_.c.s
+.PHONY : string/string_.c.s
 
 # Help Target
 help:
@@ -212,13 +199,12 @@ help:
 	@echo ... rebuild_cache
 	@echo ... project
 	@echo ... str
-	@echo ... string_.h
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... string/tasks/string_.obj
-	@echo ... string/tasks/string_.i
-	@echo ... string/tasks/string_.s
+	@echo ... string/string_.obj
+	@echo ... string/string_.i
+	@echo ... string/string_.s
 .PHONY : help
 
 

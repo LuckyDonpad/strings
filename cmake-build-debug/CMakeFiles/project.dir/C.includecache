@@ -7,14 +7,12 @@
 #IncludeRegexTransform: 
 
 E:/clionProjects/strings/main.c
-string/tasks/string_.h
-E:/clionProjects/strings/string/tasks/string_.h
-stdio.h
--
+string/string_.h
+E:/clionProjects/strings/string/string_.h
 assert.h
 -
 
-E:/clionProjects/strings/string/tasks/string_.h
-stdio.h
+E:/clionProjects/strings/string/string_.h
+stdlib.h
 -
 

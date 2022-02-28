@@ -116,25 +116,25 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-string/tasks/CMakeFiles/string_.h.dir/rule:
-	cd /d E:\clionProjects\strings\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 string/tasks/CMakeFiles/string_.h.dir/rule
-.PHONY : string/tasks/CMakeFiles/string_.h.dir/rule
+string/tasks/CMakeFiles/libr.dir/rule:
+	cd /d E:\clionProjects\strings\cmake-build-debug && $(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 string/tasks/CMakeFiles/libr.dir/rule
+.PHONY : string/tasks/CMakeFiles/libr.dir/rule
 
 # Convenience name for target.
-string_.h: string/tasks/CMakeFiles/string_.h.dir/rule
-.PHONY : string_.h
+libr: string/tasks/CMakeFiles/libr.dir/rule
+.PHONY : libr
 
 # fast build rule for target.
-string_.h/fast:
-	cd /d E:\clionProjects\strings\cmake-build-debug && $(MAKE) $(MAKESILENT) -f string\tasks\CMakeFiles\string_.h.dir\build.make string/tasks/CMakeFiles/string_.h.dir/build
-.PHONY : string_.h/fast
+libr/fast:
+	cd /d E:\clionProjects\strings\cmake-build-debug && $(MAKE) $(MAKESILENT) -f string\tasks\CMakeFiles\libr.dir\build.make string/tasks/CMakeFiles/libr.dir/build
+.PHONY : libr/fast
 
 string_.obj: string_.c.obj
 .PHONY : string_.obj
 
 # target to build an object file
 string_.c.obj:
-	cd /d E:\clionProjects\strings\cmake-build-debug && $(MAKE) $(MAKESILENT) -f string\tasks\CMakeFiles\string_.h.dir\build.make string/tasks/CMakeFiles/string_.h.dir/string_.c.obj
+	cd /d E:\clionProjects\strings\cmake-build-debug && $(MAKE) $(MAKESILENT) -f string\tasks\CMakeFiles\libr.dir\build.make string/tasks/CMakeFiles/libr.dir/string_.c.obj
 .PHONY : string_.c.obj
 
 string_.i: string_.c.i
@@ -142,7 +142,7 @@ string_.i: string_.c.i
 
 # target to preprocess a source file
 string_.c.i:
-	cd /d E:\clionProjects\strings\cmake-build-debug && $(MAKE) $(MAKESILENT) -f string\tasks\CMakeFiles\string_.h.dir\build.make string/tasks/CMakeFiles/string_.h.dir/string_.c.i
+	cd /d E:\clionProjects\strings\cmake-build-debug && $(MAKE) $(MAKESILENT) -f string\tasks\CMakeFiles\libr.dir\build.make string/tasks/CMakeFiles/libr.dir/string_.c.i
 .PHONY : string_.c.i
 
 string_.s: string_.c.s
@@ -150,7 +150,7 @@ string_.s: string_.c.s
 
 # target to generate assembly for a file
 string_.c.s:
-	cd /d E:\clionProjects\strings\cmake-build-debug && $(MAKE) $(MAKESILENT) -f string\tasks\CMakeFiles\string_.h.dir\build.make string/tasks/CMakeFiles/string_.h.dir/string_.c.s
+	cd /d E:\clionProjects\strings\cmake-build-debug && $(MAKE) $(MAKESILENT) -f string\tasks\CMakeFiles\libr.dir\build.make string/tasks/CMakeFiles/libr.dir/string_.c.s
 .PHONY : string_.c.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... string_.h
+	@echo ... libr
 	@echo ... string_.obj
 	@echo ... string_.i
 	@echo ... string_.s
