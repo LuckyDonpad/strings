@@ -11,6 +11,10 @@ string/string_.h
 E:/clionProjects/strings/string/string_.h
 assert.h
 -
+string.h
+-
+iso646.h
+-
 
 E:/clionProjects/strings/string/string_.h
 stdlib.h

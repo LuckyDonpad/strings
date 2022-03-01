@@ -6,6 +6,8 @@
 #ifndef PROJECT_STRING__H
 #define PROJECT_STRING__H
 
+int isSpace(int a);
+
 // возвращает длину строки begin
 size_t strLen_(char *begin);
 
