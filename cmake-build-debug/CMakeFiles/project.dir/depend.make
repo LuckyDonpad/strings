@@ -3,4 +3,4 @@
 
 CMakeFiles/project.dir/main.c.obj: \
  ../main.c \
- ../string/tasks/string_.h
+ ../string/string_.h
