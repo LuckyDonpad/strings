@@ -80,6 +80,13 @@ void test_copyIfReverse_smokeTest() {
     assert(strcmp(s2, s3) == 0 and *res == 's');
 }
 
+void test_deleteSpaces(){
+    char s1[] = "t e s t ";
+    char s2[] = "tests t ";
+    deleteSpaces(s1);
+    assert(strcmp(s2, s1) == 0);
+}
+
 void test() {
     test_find_smokeTest();
     test_strLen__smokeTest();
@@ -94,6 +101,7 @@ void test() {
     test_copy_smokeTest();
     test_copyIf_smokeTest();
     test_copyIfReverse_smokeTest();
+    test_deleteSpaces();
 }
 
 int main() {

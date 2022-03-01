@@ -46,5 +46,6 @@ char* copyIf(char *beginSource, const char *endSource, char *beginDestination, i
 // значение beginDestination по окончанию работы функции.
 char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int));
 
+void deleteSpaces(char *string);
 
 #endif //PROJECT_STRING__H

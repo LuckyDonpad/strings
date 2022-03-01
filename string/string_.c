@@ -10,6 +10,10 @@ int isSpace(int a) {
     return a == ' ';
 }
 
+int isNotSpace(int a) {
+    return !isSpace(a);
+}
+
 size_t strLen_(char *begin) {
     char *end = begin;
     while (*end != '\0')
@@ -81,4 +85,8 @@ char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDesti
         rbeginSource--;
     }
     return beginDestination;
+}
+
+void deleteSpaces(char *string) {
+    copyIf(string, string + strLen_(string), string, isNotSpace);
 }
