@@ -2,6 +2,12 @@
 #include <assert.h>
 #include <string.h>
 #include <iso646.h>
+#include "string.h"
+#include "stdio.h"
+
+#define ASSERT_STRING ( expected , got ) assertString ( expected , got , \
+ __FILE__ , __FUNCTION__ , __LINE__ )
+
 
 void test_strLen__smokeTest() {
     char *s1 = "Hi";
@@ -77,14 +83,42 @@ void test_copyIfReverse_smokeTest() {
     char s2[] = "test";
     char *res = copyIfReverse(&s1[3], &s1[0], &s2[0], isSpace);
     char s3[] = "  st";
-    assert(strcmp(s2, s3) == 0 and *res == 's');
+    assert(strcmp(s2, s3) == 0 and * res == 's');
 }
 
-void test_deleteSpaces(){
+void test_deleteSpaces() {
     char s1[] = "t e s t ";
     char s2[] = "tests t ";
     deleteSpaces(s1);
     assert(strcmp(s2, s1) == 0);
+}
+
+void test_normalizeSpaces_smokeTest() {
+    char s1[] = "abc   efg  zxy o";
+    char s2[] = "abc efg zxy o";
+    normalizeSpaces(s1);
+    assert(strcmp(s1, s2) == 0);
+}
+
+void test_normalizeSpaces_emptyString() {
+    char s1[] = "";
+    char s2[] = "";
+    normalizeSpaces(s1);
+    assert(strcmp(s1, s2) == 0);
+}
+
+void test_normalizeSpaces_onlySpaces(){
+    char s1[] = "               ";
+    char s2[] = " ";
+    normalizeSpaces(s1);
+    assert(strcmp(s1, s2) == 0);
+}
+
+void test_normalizeSpaces_noSpaces(){
+    char s1[] = "testabc";
+    char s2[] = "testabc";
+    normalizeSpaces(s1);
+    assert(strcmp(s1, s2) == 0);
 }
 
 void test() {
@@ -102,6 +136,10 @@ void test() {
     test_copyIf_smokeTest();
     test_copyIfReverse_smokeTest();
     test_deleteSpaces();
+    test_normalizeSpaces_smokeTest();
+    test_normalizeSpaces_emptyString();
+    test_normalizeSpaces_onlySpaces();
+    test_normalizeSpaces_noSpaces();
 }
 
 int main() {

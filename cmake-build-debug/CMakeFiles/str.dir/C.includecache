@@ -13,6 +13,8 @@ iso646.h
 -
 string.h
 -
+stdio.h
+-
 
 E:/clionProjects/strings/string/string_.h
 stdlib.h

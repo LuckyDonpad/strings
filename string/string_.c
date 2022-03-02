@@ -1,10 +1,30 @@
 //
 // Created by Donpad on 27.02.2022.
 //
+#define ASSERT_STRING ( a , b ) assertString ( expected , got , \
+ __FILE__ , __FUNCTION__ , __LINE__ )
 
 #include "string_.h"
 #include <iso646.h>
 #include <string.h>
+#include <stdio.h>
+
+int strcmp_(char *expected, char *got) {
+    return strcmp(expected, got) == 0;
+}
+
+
+void assertString(char *expected, char *got,
+                  char const *fileName, char const *funcName,
+                  int line) {
+    if (strcmp_(expected, got)) {
+        fprintf(stderr, " File %s\n", fileName);
+        fprintf(stderr, "%s - failed on line %d\n", funcName, line);
+        fprintf(stderr, " Expected : \"%s \"\n", expected);
+        fprintf(stderr, "Got: \"%s\"\n\n", got);
+    } else
+        fprintf(stderr, "%s - OK\n", funcName);
+}
 
 int isSpace(int a) {
     return a == ' ';
@@ -87,6 +107,29 @@ char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDesti
     return beginDestination;
 }
 
+/// task 1
 void deleteSpaces(char *string) {
     copyIf(string, string + strLen_(string), string, isNotSpace);
+}
+
+/// task 2
+
+void normalizeSpaces(char *string) {
+    char *iRead = findSpace(string);
+    char *iWrite = iRead + 1;
+    while (*iRead != '\0' and *iWrite != '\0') {
+        while (*iRead == ' ') {
+            iRead += 1;
+        }
+        while (*iRead != ' ' and *iWrite != '\0' and *iRead != '\0') {
+            *iWrite = *iRead;
+            iRead += 1;
+            iWrite += 1;
+        }
+        if (*iWrite != '\0' and *iRead != '\0') {
+            *iWrite = *iRead;
+            iWrite += 1;
+        }
+    }
+    *iWrite = '\0';
 }
