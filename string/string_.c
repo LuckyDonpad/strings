@@ -8,13 +8,13 @@
 #include <iso646.h>
 #include <string.h>
 #include <stdio.h>
+#include "string.h"
 
-int strcmp_(char *expected, char *got) {
-    return strcmp(expected, got) == 0;
+int strcmp_(char *expected, char *got){
+    return strcmp(expected, got) != 0;
 }
 
-
-void assertString(char *expected, char *got,
+void assertString(const char *expected, char *got,
                   char const *fileName, char const *funcName,
                   int line) {
     if (strcmp_(expected, got)) {

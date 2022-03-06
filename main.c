@@ -5,8 +5,8 @@
 #include "string.h"
 #include "stdio.h"
 
-#define ASSERT_STRING ( expected , got ) assertString ( expected , got , \
- __FILE__ , __FUNCTION__ , __LINE__ )
+#define ASSERT_STRING(expected,got) assertString(expected, got, \
+ __FILE__, __FUNCTION__, __LINE__ )
 
 
 void test_strLen__smokeTest() {
@@ -107,14 +107,14 @@ void test_normalizeSpaces_emptyString() {
     assert(strcmp(s1, s2) == 0);
 }
 
-void test_normalizeSpaces_onlySpaces(){
+void test_normalizeSpaces_onlySpaces() {
     char s1[] = "               ";
     char s2[] = " ";
     normalizeSpaces(s1);
     assert(strcmp(s1, s2) == 0);
 }
 
-void test_normalizeSpaces_noSpaces(){
+void test_normalizeSpaces_noSpaces() {
     char s1[] = "testabc";
     char s2[] = "testabc";
     normalizeSpaces(s1);

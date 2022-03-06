@@ -6,7 +6,21 @@
 #ifndef PROJECT_STRING__H
 #define PROJECT_STRING__H
 
+typedef struct WordDescriptor {
+    char *begin; // позиция начала слова
+    char *end; // позиция первого символа, после последнего символа слова
+} WordDescriptor;
+
+// возвращает значение "истина" если символ a - пробел, иначе "ложь"
 int isSpace(int a);
+
+// возвращает значение истина если строки expected и got не равны, иначе "ложь"
+int strcmp_(char *expected, char *got);
+
+// крутой ассерт
+void assertString(const char *expected, char *got,
+                  char const *fileName, char const *funcName,
+                  int line);
 
 // возвращает длину строки begin
 size_t strLen_(char *begin);
@@ -39,19 +53,29 @@ char *copy(const char *beginSource, const char *endSource, char *beginDestinatio
 //– записывает по адресу beginDestination элементы из фрагмента памяти начиная с beginSource
 //заканчивая endSource, удовлетворяющие функции-предикату f. Функция возвращает указатель на
 // следующий свободный для записи фрагмент в памяти.
-char* copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int));
+char *copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int));
 
 // записывает по адресу beginDestination элементы из фрагмента памяти начиная с rbeginSource
 // заканчивая rendSource, удовлетворяющие функции-предикату f. Функция возвращает
 // значение beginDestination по окончанию работы функции.
-char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int));
+char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int));
 
+// если в строке, насинающейся в beginSearch, есть слово (последовательность непробельных символов)
+// возвращает значение "истина" и запишет в структуру word позиции начала и конца этого слова, иначе "ложь"
+int getWord(char *beginSearch, WordDescriptor *word);
 
 /// task 1
+
+// удаляет все пробельные символы из строки string
 void deleteSpaces(char *string);
 
 
 /// task 2
-void normalizeSpaces(char * string);
+// оставляет один пробел из каждой серии пробелов в строке string
+void normalizeSpaces(char *string);
+
+/// task 3
+
+//
 
 #endif //PROJECT_STRING__H
