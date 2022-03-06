@@ -10,8 +10,20 @@
 #include <stdio.h>
 #include "string.h"
 
-int strcmp_(char *expected, char *got){
+# define MAX_STRING_SIZE 100
+# define MAX_N_WORDS_IN_STRING 100
+# define MAX_WORD_SIZE 20
+
+char _stringBuffer[MAX_STRING_SIZE + 1];
+
+int strcmp_(char *expected, char *got) {
     return strcmp(expected, got) != 0;
+}
+
+void swap(char *a, char *b) {
+    char t = *a;
+    *a = *b;
+    *b = t;
 }
 
 void assertString(const char *expected, char *got,
@@ -107,6 +119,51 @@ char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDesti
     return beginDestination;
 }
 
+int getWord(char *beginSearch, wordDescriptor *word) {
+    int isFound = 0;
+    while (*beginSearch != '\0' and isFound != 1) {
+        if (!isSpace(*beginSearch))
+            isFound = 1;
+        else
+            beginSearch += 1;
+    }
+
+    if (isFound)
+        word->begin = beginSearch;
+
+    while (isFound and *beginSearch != ' ' and *beginSearch != '\0') {
+        beginSearch += 1;
+    }
+
+    if (isFound)
+        word->end = beginSearch;
+
+    return isFound;
+}
+
+int getWordReverse(char *rbegin, char *rend, wordDescriptor *word) {
+    int isFound = 0;
+    while (rbegin != rend and isFound != 1) {
+        if (!isSpace(*rbegin))
+            isFound = 1;
+        else
+            rbegin -= 1;
+    }
+
+    if (isFound)
+        word->end = rbegin + 1;
+
+    while (isFound and *rbegin != ' ' and rbegin != rend) {
+        rbegin -= 1;
+    }
+
+    if (isFound)
+        word->begin = rbegin + 1;
+
+    return isFound;
+}
+
+
 /// task 1
 void deleteSpaces(char *string) {
     copyIf(string, string + strLen_(string), string, isNotSpace);
@@ -132,4 +189,22 @@ void normalizeSpaces(char *string) {
         }
     }
     *iWrite = '\0';
+}
+
+/// task 3
+
+void getMirroredWord(wordDescriptor word) {
+    while (word.end > word.begin) {
+        swap(word.end - 1, word.begin);
+        word.end--;
+        word.begin++;
+    }
+}
+
+void getMirroredWords(char *begin) {
+    wordDescriptor word;
+    while (getWord(begin, &word)) {
+        getMirroredWord(word);
+        begin = word.end;
+    }
 }

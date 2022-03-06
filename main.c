@@ -121,6 +121,51 @@ void test_normalizeSpaces_noSpaces() {
     assert(strcmp(s1, s2) == 0);
 }
 
+void test_getWord_haveWord(){
+    char s1[] = "   123";
+    struct wordDescriptor word;
+
+    assert(getWord(s1, &word) and *word.end == '\0' and *word.begin == '1');
+}
+
+void test_getWord_noWord(){
+    char s1[] = "      ";
+    struct wordDescriptor word;
+
+    assert(getWord(s1, &word) == 0);
+}
+
+void test_getWordReverse_haveWord(){
+    char s1[] = "   123";
+    struct wordDescriptor word;
+
+    assert(getWord(s1, &word) and *word.end == '\0' and *word.begin == '1');
+}
+
+void test_getWordReverse_noWord(){
+    char s1[] = "      ";
+    struct wordDescriptor word;
+
+    assert(getWord(s1, &word) == 0);
+}
+
+void test_getMirroredWord_smokeTest(){
+    char s1[] = "123456789";
+    wordDescriptor word;
+    getWord(s1, &word);
+    getMirroredWord(word);
+    ASSERT_STRING("987654321", s1);
+}
+
+void test_getMirroredWords_smokeTest(){
+    char s1[] = "1 23 4567 89";
+    wordDescriptor word;
+    getWord(s1, &word);
+    getMirroredWords(s1);
+    ASSERT_STRING("1 32 7654 98", s1);
+}
+
+
 void test() {
     test_find_smokeTest();
     test_strLen__smokeTest();
@@ -140,6 +185,12 @@ void test() {
     test_normalizeSpaces_emptyString();
     test_normalizeSpaces_onlySpaces();
     test_normalizeSpaces_noSpaces();
+    test_getWord_haveWord();
+    test_getWord_noWord();
+    test_getWordReverse_noWord();
+    test_getWordReverse_haveWord();
+    test_getMirroredWord_smokeTest();
+    test_getMirroredWords_smokeTest();
 }
 
 int main() {

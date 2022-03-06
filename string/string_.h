@@ -6,10 +6,12 @@
 #ifndef PROJECT_STRING__H
 #define PROJECT_STRING__H
 
-typedef struct WordDescriptor {
+typedef struct wordDescriptor {
     char *begin; // позиция начала слова
     char *end; // позиция первого символа, после последнего символа слова
-} WordDescriptor;
+} wordDescriptor;
+
+void swap(char *a, char *b);
 
 // возвращает значение "истина" если символ a - пробел, иначе "ложь"
 int isSpace(int a);
@@ -62,7 +64,9 @@ char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDesti
 
 // если в строке, насинающейся в beginSearch, есть слово (последовательность непробельных символов)
 // возвращает значение "истина" и запишет в структуру word позиции начала и конца этого слова, иначе "ложь"
-int getWord(char *beginSearch, WordDescriptor *word);
+int getWord(char *beginSearch, wordDescriptor *word);
+
+int getWordReverse(char *rbegin, char *rend, wordDescriptor *word);
 
 /// task 1
 
@@ -76,6 +80,10 @@ void normalizeSpaces(char *string);
 
 /// task 3
 
-//
+//Преобразовать строку, обратив каждое слово этой строки.
+
+void getMirroredWord(wordDescriptor word);
+
+void getMirroredWords(char *begin);
 
 #endif //PROJECT_STRING__H
