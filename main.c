@@ -165,6 +165,63 @@ void test_getMirroredWords_smokeTest(){
     ASSERT_STRING("1 32 7654 98", s1);
 }
 
+void test_areWordsEqual_wordsEqual(){
+    char s1[] = "test";
+    wordDescriptor word;
+    getWord(s1, &word);
+    assert(areWordsEqual(word, word) == 0);
+}
+
+void test_areWordsEqual_word1Bigger(){
+    char s1[] = "testd";
+    char s2[] = "testa";
+    wordDescriptor word1;
+    getWord(s1, &word1);
+    wordDescriptor word2;
+    getWord(s2, &word2);
+    assert(areWordsEqual(word1, word2) == 1 );
+}
+
+void test_areWordsEqual_word1Lesser(){
+    char s1[] = "testd";
+    char s2[] = "testa";
+    wordDescriptor word1;
+    getWord(s1, &word1);
+    wordDescriptor word2;
+    getWord(s2, &word2);
+    assert(areWordsEqual(word2, word1) == -1 );
+}
+
+void test_areWordsEqual_word1Shorter(){
+    char s1[] = "test";
+    char s2[] = "testtttt";
+    wordDescriptor word1;
+    getWord(s1, &word1);
+    wordDescriptor word2;
+    getWord(s2, &word2);
+    assert(areWordsEqual(word1, word2) == -1 );
+}
+
+void test_areWordsEqual_word1Longer(){
+    char s1[] = "testtttttttttt";
+    char s2[] = "testtttt";
+    wordDescriptor word1;
+    getWord(s1, &word1);
+    wordDescriptor word2;
+    getWord(s2, &word2);
+    assert(areWordsEqual(word1, word2) == 1 );
+}
+
+void test_areWordsIsOrderedLexicographically_isOrdered(){
+    char s1[] = "abc efd h i j k l m nop";
+    assert(areWordsIsOrderedLexicographically(s1));
+}
+
+void test_areWordsIsOrderedLexicographically_nonOrdered(){
+    char s1[] = "abc efd x i z k l m nop";
+    assert(!areWordsIsOrderedLexicographically(s1));
+}
+
 
 void test() {
     test_find_smokeTest();
@@ -191,6 +248,13 @@ void test() {
     test_getWordReverse_haveWord();
     test_getMirroredWord_smokeTest();
     test_getMirroredWords_smokeTest();
+    test_areWordsEqual_word1Bigger();
+    test_areWordsEqual_word1Lesser();
+    test_areWordsEqual_word1Longer();
+    test_areWordsEqual_word1Shorter();
+    test_areWordsEqual_wordsEqual();
+    test_areWordsIsOrderedLexicographically_isOrdered();
+    test_areWordsIsOrderedLexicographically_nonOrdered();
 }
 
 int main() {

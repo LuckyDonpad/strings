@@ -86,4 +86,8 @@ void getMirroredWord(wordDescriptor word);
 
 void getMirroredWords(char *begin);
 
+int areWordsEqual(wordDescriptor word1, wordDescriptor word2);
+
+int areWordsIsOrderedLexicographically(char *string);
+
 #endif //PROJECT_STRING__H

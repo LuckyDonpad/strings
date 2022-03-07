@@ -208,3 +208,49 @@ void getMirroredWords(char *begin) {
         begin = word.end;
     }
 }
+
+/// task 4
+/// task 5
+//TODO разобраться как это сделать безопасно и без утечек памяти
+
+/// task 6
+
+int areWordsEqual(wordDescriptor word1, wordDescriptor word2) {
+    int word1Len = word1.end - word1.begin;
+    int word2Len = word2.end - word2.begin;
+    int minLen = word1Len < word2Len ? word1Len : word2Len;
+    int isEqual = 0;
+
+    for (int i = 0; i < minLen; ++i) {
+        if (*word1.begin != *word2.begin) {
+            isEqual = *word1.begin > *word2.begin ? 1 : -1;
+            break;
+        } else {
+            word1.begin++;
+            word2.begin++;
+        }
+    }
+
+    if (isEqual == 0) {
+        if (word1Len != word2Len)
+            isEqual = word1Len > word2Len ? 1 : -1;
+    }
+
+    return isEqual;
+}
+
+int areWordsIsOrderedLexicographically(char *string){
+    int isOrdered = 0;
+    wordDescriptor word1;
+    getWord(string, &word1);
+
+    wordDescriptor word2;
+
+    while(getWord(string, &word2) and isOrdered == 0){
+        string = word1.end;
+        isOrdered = areWordsEqual(word1, word2) == 1;
+        word1 = word2;
+    }
+    return isOrdered == 0;
+}
+
