@@ -88,9 +88,8 @@ void test_copyIfReverse_smokeTest() {
 
 void test_deleteSpaces() {
     char s1[] = "t e s t ";
-    char s2[] = "tests t ";
     deleteSpaces(s1);
-    assert(strcmp(s2, s1) == 0);
+    ASSERT_STRING("test", s1);
 }
 
 void test_normalizeSpaces_smokeTest() {

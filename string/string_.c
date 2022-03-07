@@ -105,7 +105,7 @@ char *copyIf(char *beginSource, const char *endSource, char *beginDestination, i
         }
         beginSource++;
     }
-    return beginSource;
+    return beginDestination;
 }
 
 char *copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int)) {
@@ -166,7 +166,8 @@ int getWordReverse(char *rbegin, char *rend, wordDescriptor *word) {
 
 /// task 1
 void deleteSpaces(char *string) {
-    copyIf(string, string + strLen_(string), string, isNotSpace);
+    char * destination = copyIf(string, string + strLen_(string), string, isNotSpace);
+    *destination = '\0';
 }
 
 /// task 2
