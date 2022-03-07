@@ -239,18 +239,36 @@ int areWordsEqual(wordDescriptor word1, wordDescriptor word2) {
     return isEqual;
 }
 
-int areWordsIsOrderedLexicographically(char *string){
+int areWordsIsOrderedLexicographically(char *string) {
     int isOrdered = 0;
     wordDescriptor word1;
     getWord(string, &word1);
 
     wordDescriptor word2;
 
-    while(getWord(string, &word2) and isOrdered == 0){
+    while (getWord(string, &word2) and isOrdered == 0) {
         string = word1.end;
         isOrdered = areWordsEqual(word1, word2) == 1;
         word1 = word2;
     }
     return isOrdered == 0;
+}
+/// task 7
+void printWord(wordDescriptor word){
+    while (word.begin < word.end){
+        printf("%c", *word.begin);
+        word.begin++;
+    }
+    printf("\n");
+}
+
+void printWordsfromEnd(char *string) {
+    wordDescriptor word;
+    char *strEnd= string + strLen_(string);
+    getWordReverse(strEnd, string -1, &word);
+    while(getWordReverse(strEnd, string - 1, &word)){
+        printWord(word);
+        strEnd = word.begin - 1;
+    }
 }
 

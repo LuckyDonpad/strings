@@ -88,6 +88,12 @@ void getMirroredWords(char *begin);
 
 int areWordsEqual(wordDescriptor word1, wordDescriptor word2);
 
+/// task 6
+
 int areWordsIsOrderedLexicographically(char *string);
 
+/// task 7
+void printWord(wordDescriptor word);
+
+void printWordsfromEnd(char * string);
 #endif //PROJECT_STRING__H
