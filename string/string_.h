@@ -95,5 +95,13 @@ int areWordsIsOrderedLexicographically(char *string);
 /// task 7
 void printWord(wordDescriptor word);
 
-void printWordsfromEnd(char * string);
+void printWordsFromEnd(char *string);
+
+/// task 8
+int isPalindrome(wordDescriptor word);
+
+void split(char *string, char splitter);
+
+int getNPalindromes(char *string);
+
 #endif //PROJECT_STRING__H

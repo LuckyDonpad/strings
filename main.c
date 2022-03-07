@@ -222,6 +222,24 @@ void test_areWordsIsOrderedLexicographically_nonOrdered(){
     assert(!areWordsIsOrderedLexicographically(s1));
 }
 
+void test_splitter_smokeTest(){
+    char s1[] = "abc,cd,efgg,";
+    split(s1, ',');
+    ASSERT_STRING("abc cd efgg ", s1);
+}
+
+void test_isPalindrome_Palindrome(){
+    char s1[] = "abcxcba";
+    wordDescriptor  word;
+    getWord(s1, &word);
+    assert(isPalindrome(word));
+}
+
+void test_getNPalindromes_3Palindromes(){
+    char s1[] = "aba,zxz,xyz,ccc";
+    assert(getNPalindromes(s1) == 3);
+}
+
 
 void test() {
     test_find_smokeTest();
@@ -255,6 +273,9 @@ void test() {
     test_areWordsEqual_wordsEqual();
     test_areWordsIsOrderedLexicographically_isOrdered();
     test_areWordsIsOrderedLexicographically_nonOrdered();
+    test_splitter_smokeTest();
+    test_isPalindrome_Palindrome();
+    test_getNPalindromes_3Palindromes();
 }
 
 int main() {

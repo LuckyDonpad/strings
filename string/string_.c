@@ -253,22 +253,53 @@ int areWordsIsOrderedLexicographically(char *string) {
     }
     return isOrdered == 0;
 }
+
 /// task 7
-void printWord(wordDescriptor word){
-    while (word.begin < word.end){
+void printWord(wordDescriptor word) {
+    while (word.begin < word.end) {
         printf("%c", *word.begin);
         word.begin++;
     }
     printf("\n");
 }
 
-void printWordsfromEnd(char *string) {
+void printWordsFromEnd(char *string) {
     wordDescriptor word;
-    char *strEnd= string + strLen_(string);
-    getWordReverse(strEnd, string -1, &word);
-    while(getWordReverse(strEnd, string - 1, &word)){
+    char *strEnd = string + strLen_(string);
+    getWordReverse(strEnd, string - 1, &word);
+    while (getWordReverse(strEnd, string - 1, &word)) {
         printWord(word);
         strEnd = word.begin - 1;
     }
 }
 
+/// task 8
+void split(char *string, char splitter) {
+    while (*string != '\0') {
+        if (*string == splitter)
+            *string = ' ';
+        string++;
+    }
+}
+
+int isPalindrome(wordDescriptor word) {
+    word.end--;
+    int isPalindrome = 1;
+    while (word.begin < word.end and isPalindrome) {
+        isPalindrome = *word.begin == *word.end;
+        word.end--;
+        word.begin++;
+    }
+    return isPalindrome;
+}
+
+int getNPalindromes(char *string) {
+    split(string, ',');
+    wordDescriptor word;
+    int nPalindromes = 0;
+    while (getWord(string, &word)) {
+        nPalindromes += isPalindrome(word);
+        string = word.end;
+    }
+    return nPalindromes;
+}
