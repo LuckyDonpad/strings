@@ -135,10 +135,10 @@ void test_getWord_noWord(){
 }
 
 void test_getWordReverse_haveWord(){
-    char s1[] = "   123";
+    char s1[] = "123 ";
     struct wordDescriptor word;
 
-    assert(getWord(s1, &word) and *word.end == '\0' and *word.begin == '1');
+    assert(getWord(s1, &word) and *word.end == ' ' and *word.begin == '1');
 }
 
 void test_getWordReverse_noWord(){
@@ -210,7 +210,6 @@ void test_areWordsEqual_word1Longer(){
     getWord(s2, &word2);
     assert(areWordsEqual(word1, word2) == 1 );
 }
-
 void test_areWordsIsOrderedLexicographically_isOrdered(){
     char s1[] = "abc efd h i j k l m nop";
     assert(areWordsIsOrderedLexicographically(s1));
@@ -246,6 +245,12 @@ void test_mergeStringsByWord_smokeTest(){
     char reference[] = "aaa bbb ccc ddd eee fff";
     mergeStringsByWord(s1,s2,s3);
     ASSERT_STRING(reference, s3);
+}
+
+void test_makeWordsBackward_smokeTest(){
+    char s1[] = "asd bbb ccc ";
+    makeWordsBackward(s1);
+    ASSERT_STRING("ccc bbb asd", s1);
 }
 
 
@@ -284,7 +289,9 @@ void test() {
     test_splitter_smokeTest();
     test_isPalindrome_Palindrome();
     test_getNPalindromes_3Palindromes();
-    test_mergeStringsByWord_smokeTest();
+ //   test_mergeStringsByWord_smokeTest();
+    test_makeWordsBackward_smokeTest();
+
 }
 
 int main() {

@@ -6,6 +6,10 @@
 #ifndef PROJECT_STRING__H
 #define PROJECT_STRING__H
 
+#define MAX_N_WORDS_IN_STRING 20
+
+
+
 typedef struct wordDescriptor {
     char *begin; // позиция начала слова
     char *end; // позиция первого символа, после последнего символа слова
@@ -106,5 +110,11 @@ int getNPalindromes(char *string);
 
 /// task 9
 void mergeStringsByWord(char *s1, char *s2, char *resStr);
+
+/// task 10
+
+void getBagOfWords(char *string , struct bagOfWords *bag);
+
+void makeWordsBackward(char *string);
 
 #endif //PROJECT_STRING__H

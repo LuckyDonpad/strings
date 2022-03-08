@@ -16,6 +16,7 @@
 
 char _stringBuffer[MAX_STRING_SIZE + 1];
 
+
 int strcmp_(char *expected, char *got) {
     return strcmp(expected, got) != 0;
 }
@@ -315,16 +316,34 @@ void mergeStringsByWord(char *s1, char *s2, char *resStr) {
         if (isFoundW1) {
             resStr = copy(word1.begin, word1.end - 1, resStr);
             *resStr = ' ';
-            resStr ++;
+            resStr++;
             beginSearch1 = word1.end;
         }
 
         if (isFoundW2) {
             resStr = copy(word2.begin, word2.end - 1, resStr);
             *resStr = ' ';
-            resStr ++;
+            resStr++;
             beginSearch2 = word2.end;
         }
         *resStr = '\0';
+    }
+}
+
+/// task 10
+
+void makeWordsBackward(char *string) {
+    int length = strLen_(string);
+    copy(string, string+ length, _stringBuffer);
+    *(_stringBuffer+length) = ' ';
+    *(_stringBuffer+length + 1) = '\0';
+    wordDescriptor word;
+
+    if (getWordReverse(_stringBuffer+length, string, &word)){
+        string = copy(word.begin,word.end,string);
+        while(getWordReverse(word.begin - 1, _stringBuffer - 1, &word)){
+            string = copy(word.begin,word.end,string);
+        }
+        *(string - (length != 1)) = '\0';
     }
 }
