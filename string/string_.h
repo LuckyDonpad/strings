@@ -104,4 +104,7 @@ void split(char *string, char splitter);
 
 int getNPalindromes(char *string);
 
+/// task 9
+void mergeStringsByWord(char *s1, char *s2, char *resStr);
+
 #endif //PROJECT_STRING__H

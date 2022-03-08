@@ -238,6 +238,15 @@ void test_getNPalindromes_3Palindromes(){
     char s1[] = "aba,zxz,xyz,ccc";
     assert(getNPalindromes(s1) == 3);
 }
+//TODO понять почему ассерт ругается хоть результат нужный
+void test_mergeStringsByWord_smokeTest(){
+    char s1[] = "aaa ccc eee";
+    char s2[] = "bbb ddd fff";
+    char s3[100];
+    char reference[] = "aaa bbb ccc ddd eee fff";
+    mergeStringsByWord(s1,s2,s3);
+    ASSERT_STRING(reference, s3);
+}
 
 
 void test() {
@@ -275,6 +284,7 @@ void test() {
     test_splitter_smokeTest();
     test_isPalindrome_Palindrome();
     test_getNPalindromes_3Palindromes();
+    test_mergeStringsByWord_smokeTest();
 }
 
 int main() {

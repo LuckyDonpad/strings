@@ -166,7 +166,7 @@ int getWordReverse(char *rbegin, char *rend, wordDescriptor *word) {
 
 /// task 1
 void deleteSpaces(char *string) {
-    char * destination = copyIf(string, string + strLen_(string), string, isNotSpace);
+    char *destination = copyIf(string, string + strLen_(string), string, isNotSpace);
     *destination = '\0';
 }
 
@@ -303,4 +303,28 @@ int getNPalindromes(char *string) {
         string = word.end;
     }
     return nPalindromes;
+}
+
+/// task 9
+void mergeStringsByWord(char *s1, char *s2, char *resStr) {
+    wordDescriptor word1, word2;
+    int isFoundW1, isFoundW2;
+    char *beginSearch1 = s1, *beginSearch2 = s2;
+    while ((isFoundW1 = getWord(beginSearch1, &word1)), (isFoundW2 = getWord(beginSearch2, &word2)), (isFoundW1 ||
+                                                                                                      isFoundW2)) {
+        if (isFoundW1) {
+            resStr = copy(word1.begin, word1.end - 1, resStr);
+            *resStr = ' ';
+            resStr ++;
+            beginSearch1 = word1.end;
+        }
+
+        if (isFoundW2) {
+            resStr = copy(word2.begin, word2.end - 1, resStr);
+            *resStr = ' ';
+            resStr ++;
+            beginSearch2 = word2.end;
+        }
+        *resStr = '\0';
+    }
 }
