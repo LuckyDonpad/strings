@@ -92,6 +92,11 @@ void getMirroredWords(char *begin);
 
 int areWordsEqual(wordDescriptor word1, wordDescriptor word2);
 
+/// task 4
+void getStringWithDigitsToSpaces(char *source, char* destination);
+
+int getDigitFromChar(char symbol);
+
 /// task 6
 
 int areWordsIsOrderedLexicographically(char *string);

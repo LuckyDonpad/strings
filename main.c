@@ -253,6 +253,13 @@ void test_makeWordsBackward_smokeTest(){
     ASSERT_STRING("ccc bbb asd", s1);
 }
 
+void test_getStringWithDigitsToSpaces_smokeTest(){
+    char s1[] = "s0s1s2s3s4s5s6s7s8s9";
+    char s2[100];
+    getStringWithDigitsToSpaces(s1, s2);
+    ASSERT_STRING("ss s  s   s    s     s      s       s        s         ", s2);
+}
+
 
 void test() {
     test_find_smokeTest();
@@ -291,6 +298,7 @@ void test() {
     test_getNPalindromes_3Palindromes();
  //   test_mergeStringsByWord_smokeTest();
     test_makeWordsBackward_smokeTest();
+    test_getStringWithDigitsToSpaces_smokeTest();
 
 }
 

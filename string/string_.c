@@ -212,6 +212,30 @@ void getMirroredWords(char *begin) {
 }
 
 /// task 4
+int getDigitFromChar(char symbol) {
+    int digit = -1;
+    if ((int) symbol >= 48 and symbol <= 57)
+        digit = (int) symbol - 48;
+    return digit;
+}
+
+void getStringWithDigitsToSpaces(char *source, char *destination) {
+    while (*source != '\0') {
+        int isDigit = getDigitFromChar(*source);
+        if (isDigit != -1) {
+            for (int i = 0; i < isDigit; ++i) {
+                *destination = ' ';
+                destination += 1;
+            }
+        } else {
+            *destination = *source;
+            destination += 1;
+        }
+        source += 1;
+    }
+    *destination = '\0';
+}
+
 /// task 5
 //TODO разобраться как это сделать безопасно и без утечек памяти
 
@@ -334,15 +358,15 @@ void mergeStringsByWord(char *s1, char *s2, char *resStr) {
 
 void makeWordsBackward(char *string) {
     int length = strLen_(string);
-    copy(string, string+ length, _stringBuffer);
-    *(_stringBuffer+length) = ' ';
-    *(_stringBuffer+length + 1) = '\0';
+    copy(string, string + length, _stringBuffer);
+    *(_stringBuffer + length) = ' ';
+    *(_stringBuffer + length + 1) = '\0';
     wordDescriptor word;
 
-    if (getWordReverse(_stringBuffer+length, string, &word)){
-        string = copy(word.begin,word.end,string);
-        while(getWordReverse(word.begin - 1, _stringBuffer - 1, &word)){
-            string = copy(word.begin,word.end,string);
+    if (getWordReverse(_stringBuffer + length, string, &word)) {
+        string = copy(word.begin, word.end, string);
+        while (getWordReverse(word.begin - 1, _stringBuffer - 1, &word)) {
+            string = copy(word.begin, word.end, string);
         }
         *(string - (length != 1)) = '\0';
     }
