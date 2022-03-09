@@ -259,7 +259,11 @@ void test_getStringWithDigitsToSpaces_smokeTest(){
     getStringWithDigitsToSpaces(s1, s2);
     ASSERT_STRING("ss s  s   s    s     s      s       s        s         ", s2);
 }
-
+void test_replace_smokeTest(){
+    char s1[] = " test notest test";
+    replace(s1, "test", "notest" );
+    ASSERT_STRING("notest notest notest", s1);
+}
 
 void test() {
     test_find_smokeTest();
@@ -299,7 +303,7 @@ void test() {
  //   test_mergeStringsByWord_smokeTest();
     test_makeWordsBackward_smokeTest();
     test_getStringWithDigitsToSpaces_smokeTest();
-
+    test_replace_smokeTest();
 }
 
 int main() {

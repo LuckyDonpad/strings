@@ -97,6 +97,9 @@ void getStringWithDigitsToSpaces(char *source, char* destination);
 
 int getDigitFromChar(char symbol);
 
+/// task 5
+void replace(char *source, char *w1, char *w2);
+
 /// task 6
 
 int areWordsIsOrderedLexicographically(char *string);

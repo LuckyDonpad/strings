@@ -6,9 +6,9 @@
 
 #include "string_.h"
 #include <iso646.h>
-#include <string.h>
+#include <memory.h>
 #include <stdio.h>
-#include "string.h"
+
 
 # define MAX_STRING_SIZE 100
 # define MAX_N_WORDS_IN_STRING 100
@@ -18,7 +18,16 @@ char _stringBuffer[MAX_STRING_SIZE + 1];
 
 
 int strcmp_(char *expected, char *got) {
-    return strcmp(expected, got) != 0;
+    int isEqual = 1;
+    while (*expected != '\0' and *got != '\0' and isEqual) {
+        if (*expected != *got)
+            isEqual = 0;
+        else {
+            expected+=1;
+            got+=1;
+        }
+    }
+    return !isEqual;
 }
 
 void swap(char *a, char *b) {
@@ -237,6 +246,35 @@ void getStringWithDigitsToSpaces(char *source, char *destination) {
 }
 
 /// task 5
+
+void replace(char *source, char *w1, char *w2) {
+    size_t w1Size = strLen_(w1);
+    size_t w2Size = strLen_(w2);
+    wordDescriptor word1 = {w1, w1 + w1Size};
+    wordDescriptor word2 = {w2, w2 + w2Size};
+
+    char *readPtr, *recPtr;
+    if (w1Size >= w2Size) {
+        readPtr = source;
+        recPtr = source;
+    } else {
+        copy(source, strLen_(source) + source, _stringBuffer);
+        readPtr = _stringBuffer;
+        recPtr = source;
+    }
+    wordDescriptor currentWord;
+    getWord(readPtr, &currentWord);
+    while (*readPtr != '\0') {
+        if (strcmp_(w1, currentWord.begin) == 0) {
+            recPtr = copy(w2, w2 + w2Size, recPtr);
+        } else {
+            recPtr = copy(currentWord.begin, currentWord.end, readPtr);
+        }
+        readPtr += (currentWord.end - currentWord.begin);
+    }
+    *recPtr = '\0';
+}
+
 //TODO разобраться как это сделать безопасно и без утечек памяти
 
 /// task 6
